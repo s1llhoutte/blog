@@ -14,6 +14,6 @@ class UpdateController extends BaseController
         $data = $request->validated();
         $post = $this->service->update($data, $post);
 
-        return view('admin.category.show', compact("post"));
+        return view('admin.post.show', compact("post"));
     }
 }
