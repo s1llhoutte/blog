@@ -31,4 +31,22 @@ class UpdateRequest extends FormRequest
             'tag_ids.*' => 'nullable|integer|exists:tags,id',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Это поле необходимо для заполнения',
+            'title.string' => 'Данные должны соответствовать строчному типу',
+            'content.required' => 'Это поле необходимо для заполнения',
+            'content.string' => 'Данные должны соответствовать строчному типу',
+            'preview_image.required' => 'Это поле необходимо для заполнения',
+            'preview_image.file' => 'Необходимо выбрать файл',
+            'main_image.required' => 'Это поле необходимо для заполнения',
+            'main_image.file' => 'Необходимо выбрать файл',
+            'category_id.required' => 'Это поле необходимо для заполнения',
+            'category_id.integer' => 'Id категории должны быть числом',
+            'category_id.exists' => 'Id категории должны быть в базе данных',
+            'tag.ids.array' => 'Необходимо отправить массив с данными',
+        ];
+    }
 }
