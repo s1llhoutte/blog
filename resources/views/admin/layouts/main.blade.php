@@ -93,5 +93,10 @@
         bsCustomFileInput.init();
     });
 </script>
+<style>
+    .custom-file-label::after{
+        content: "..." !important;
+    }
+</style>
 </body>
 </html>
