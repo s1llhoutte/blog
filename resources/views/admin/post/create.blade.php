@@ -30,9 +30,9 @@
                             @csrf
                             <div class="form-group w-25">
                                 <input type="text" class="form-control" name="title" placeholder="Название поста"
-                                value="{{ old('title') }}">
+                                       value="{{ old('title') }}">
                                 @error('title')
-                                    <div class="text-danger">Это поле необходимо заполнить !</div>
+                                <div class="text-danger">Это поле необходимо заполнить !</div>
                                 @enderror
                             </div>
                             <div class="form-group">
@@ -40,7 +40,7 @@
                                     {{ old('content') }}
                                 </textarea>
                                 @error('content')
-                                    <div class="text-danger">Это поле необходимо заполнить !</div>
+                                <div class="text-danger">Это поле необходимо заполнить !</div>
                                 @enderror
                             </div>
                             <div class="form-group w-50">
@@ -78,8 +78,17 @@
                                 <select name="category_id" class="form-control">
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}"
-                                        {{ $category->id == old('category_id') ? ' selected' : '' }}
+                                            {{ $category->id == old('category_id') ? ' selected' : '' }}
                                         >{{ $category->title }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Тэги</label>
+                                <select class="select2" name="tag_ids[]" multiple="multiple"
+                                        data-placeholder="Выберите тэги" style="width: 100%;">
+                                    @foreach($tags as $tag)
+                                        <option {{ is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? ' selected' : ''}} value="{{ $tag->id }}">{{ $tag->title }}</option>
                                     @endforeach
                                 </select>
                             </div>
