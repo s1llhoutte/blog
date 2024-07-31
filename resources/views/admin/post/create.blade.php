@@ -86,7 +86,7 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="form-group">
+                            <div class="form-group w-50">
                                 <label>Тэги</label>
                                 <select class="select2" name="tag_ids[]" multiple="multiple"
                                         data-placeholder="Выберите тэги" style="width: 100%;">
