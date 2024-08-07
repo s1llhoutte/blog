@@ -92,7 +92,10 @@
                                 <select class="select2" name="tag_ids[]" multiple="multiple"
                                         data-placeholder="Выберите тэги" style="width: 100%;">
                                     @foreach($tags as $tag)
-                                        <option {{ is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? ' selected' : ''}} value="{{ $tag->id }}">{{ $tag->title }}</option>
+                                        <option value="{{ $tag->id }}"
+                                            {{ in_array($tag->id, (array) old('tag_ids', [])) ? 'selected' : '' }}>
+                                            {{ $tag->title }}
+                                        </option>
                                     @endforeach
                                 </select>
                                 @error('tag_ids')
